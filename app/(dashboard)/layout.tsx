@@ -34,7 +34,7 @@ const DashBoardLayhout = ({ children }: Readonly<{ children: React.ReactNode }>)
               <motion.div
                 initial="hidden"
                 animate="visible"
-                className={`relative overflow-hidden flex gap-4 items-center hover:bg-primary/5 py-2 px-2 rounded-sm transition-all duration-300 ease-in-out ${path === item.path ? 'bg-primary' : ''}`}
+                className={`relative overflow-hidden flex gap-4 items-center hover:bg-primary/5 py-2 px-2 rounded-sm transition-all duration-300 ease-in-out ${path === item.path ? 'bg-primary text-primary-foreground' : ''}`}
               >
                 {/* Icon */}
                 <item.icon className='h-5 relative z-10' />
@@ -72,9 +72,9 @@ const DashBoardLayhout = ({ children }: Readonly<{ children: React.ReactNode }>)
                 {item.submenu.map((submenu, index) => (
                   <Link href={submenu.path} key={index}>
                     <div
-                      className={`group flex gap-2 items-center hover:bg-primary/5 py-2 px-2 rounded-sm relative ${path === submenu.path ? 'bg-primary' : ''}`}
+                      className={`group flex gap-2 items-center hover:bg-primary/5 py-2 px-2 rounded-sm relative ${path === submenu.path ? 'bg-primary text-primary-foreground' : ''}`}
                     >
-                      <i className={` absolute left-3 -top-2 w-[1.5px] h-5 bg-foreground group-hover:opacity-60 transition-opacity duration-200 ${path === submenu.path ? 'opacity-80' : 'opacity-25'}`}></i>
+                      <i className={`absolute left-3 -top-2 w-[1.5px] h-5 bg-card group-hover:opacity-60 transition-opacity duration-200 ${path === submenu.path ? 'opacity-80' : 'opacity-25'}`}></i>
                       <CornerDownRightIcon className={`h-5  group-hover:opacity-70  transition-opacity duration-200 ${path === submenu.path ? 'opacity-100' : 'opacity-25'}`} />
                       <p className={`text-sm font-semibold group-hover:opacity-70 transition-opacity duration-200 ${(path === submenu.path) ? 'opacity-100' : 'opacity-45'}`}>{submenu.name}</p>
                     </div>

@@ -21,7 +21,15 @@ export const menu = [
             {
                 name: 'Add Employee',
                 path: '/employees/add',
-            }
+            },
+            {
+                name: 'Manage Roles',
+                path: '/employees/roles',
+            },
+            {
+                name: 'Add Role',
+                path: '/employees/roles/add',
+            },
         ]
     },
     {

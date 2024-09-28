@@ -12,6 +12,7 @@ export const useCityStore = create<CityState>()((set)=>({
     }
 }))
 
+// -------------------------------------------------
 
 interface CampusState {
     name: string
@@ -44,6 +45,7 @@ export const useCampusStore = create<CampusState>()((set)=>({
     }
 }))
 
+// -------------------------------------------------
 
 interface LoginState {
     email: string
