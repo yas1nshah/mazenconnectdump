@@ -18,6 +18,7 @@ const LoginPage = () => {
     e.preventDefault()
     setError("")
 
+    console.log("sending email")
     const response = await loginCampus({email: loginStore.email, password: loginStore.password})
     if (response.error) {
       setError(response.error)

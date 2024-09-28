@@ -103,6 +103,7 @@ export const loginCampus = async (formData: z.infer<typeof campusLoginSchema>) =
         };
     }
 
+    console.log("fetching email")
     const existingCampus = await db.select().from(Campus).where(eq(Campus.email, formData.email)).limit(1);
     if(!existingCampus){
         return {
@@ -110,6 +111,7 @@ export const loginCampus = async (formData: z.infer<typeof campusLoginSchema>) =
         }
     }
 
+    console.log("fetched")
     const validPassword = await bcrypt.compare(formData.password, existingCampus[0].password);
     if (!validPassword) {
         return {
@@ -117,6 +119,7 @@ export const loginCampus = async (formData: z.infer<typeof campusLoginSchema>) =
         }
     }
 
+    console.log("creating session")
     const session = await lucia.createSession(existingCampus[0].id, {email: formData.email});
     const sessionCookie = lucia.createSessionCookie(session.id);
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
