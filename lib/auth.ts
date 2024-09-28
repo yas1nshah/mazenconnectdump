@@ -10,12 +10,11 @@ const adapter = new DrizzleMySQLAdapter(db, sessionTable, userTable )
 export const lucia = new Lucia(adapter, {
     sessionCookie: {
         attributes:{
-            secure: process.env.NODE_ENV === "production",
+            secure: false,
         }
     },
     getUserAttributes: (attributes) => {
 		return {
-			// attributes has the type of DatabaseUserAttributes
 			email: attributes.email
 		};
 	}
