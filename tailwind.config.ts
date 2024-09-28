@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			misologist: ['Misologist', 'sans-serif'],
+			outfit: ['var(--font-outfit)', 'sans-serif'],
+		  },
 		colors: {
 			background: 'hsl(var(--background))',
 			foreground: 'hsl(var(--foreground))',

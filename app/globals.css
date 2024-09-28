@@ -85,3 +85,11 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'Misologist';
+  src: url('/fonts/Misologist.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

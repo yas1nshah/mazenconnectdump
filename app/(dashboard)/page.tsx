@@ -1,61 +1,11 @@
+import AnimatedHeading from '@/components/general/AnimatedHeading'
 import React from 'react'
 
 const Home = () => {
   return (
-    <div>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-    <p className='text-4xl'>Home</p>
-
+    <div className="py-6">
+      <AnimatedHeading className='font-misologist font-light text-2xl text-primary' title='Connect by' varient='heading' />
+      <AnimatedHeading className='font-misologist font-normal' title='Mazen Schools' varient='heading' />
     </div>
   )
 }

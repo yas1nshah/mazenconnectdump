@@ -7,11 +7,12 @@ import { Separator } from '@/components/ui/separator'
 import React, { Suspense } from 'react'
 import { Skeleton } from "@/components/ui/skeleton"
 import Image from 'next/image'
+import AnimatedHeading from '@/components/general/AnimatedHeading'
 
 const CampusPage = async() => {
   return (
-    <div>
-        <div className='rounded-xl overflow-clip my-4 w-full'>
+    <div className='py-6'>
+        {/* <div className='rounded-xl overflow-clip my-4 w-full'>
                 <Image
                 src={'/manage-campuses.png'}
                 className='w-full h-auto object-contain'
@@ -20,6 +21,10 @@ const CampusPage = async() => {
                 height={500}
                 draggable={false}
                 />
+            </div> */}
+            <div className="mb-4">
+            <AnimatedHeading className='font-misologist font-light text-2xl text-primary' title='Manage' varient='heading' />
+            <AnimatedHeading className='font-misologist font-normal' title='Campuses' varient='heading' />
             </div>
         <div className='flex gap-4'>
             <div className="flex-grow">

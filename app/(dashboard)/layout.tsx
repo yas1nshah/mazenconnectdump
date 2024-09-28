@@ -30,7 +30,7 @@ const DashBoardLayhout = ({ children }: Readonly<{ children: React.ReactNode }>)
 
   return (
     <div className='flex h-screen w-full gap-2'>
-      <aside className='p-2 bg-secondary/10 h-full w-56'>
+      <aside className='p-2 bg-secondary/10 h-full w-full max-w-56'>
         {menu.map((item, index) => (
           <div key={index}>
             <Link href={item.path}>
@@ -38,7 +38,7 @@ const DashBoardLayhout = ({ children }: Readonly<{ children: React.ReactNode }>)
               <motion.div
                 initial="hidden"
                 animate="visible"
-                className={`relative overflow-hidden flex gap-4 items-center hover:bg-primary/5 py-2 px-2 rounded-sm ${path === item.path ? 'bg-primary' : ''}`}
+                className={`relative overflow-hidden flex gap-4 items-center hover:bg-primary/5 py-2 px-2 rounded-sm transition-all duration-300 ease-in-out ${path === item.path ? 'bg-primary' : ''}`}
               >
                 {/* Icon */}
                 <item.icon className='h-5 relative z-10' />
