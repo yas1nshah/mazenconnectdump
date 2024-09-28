@@ -8,7 +8,6 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import bcrypt from 'bcrypt'
-import { error } from "console";
 import { validateRequest } from "@/lib/validateSession";
 
 

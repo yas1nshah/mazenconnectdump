@@ -1,6 +1,6 @@
 "use server"
 import { db } from "@/drizzle/db"
-import { Campus, City } from "@/drizzle/schema"
+import { City } from "@/drizzle/schema"
 import { validateRequest } from "@/lib/validateSession";
 import { eq } from "drizzle-orm";
 import {z} from "zod"
@@ -9,7 +9,7 @@ import {z} from "zod"
     name: z.string().min(1, 'City name is required').max(10, 'City name is too long'),
   });
 
-  export default async function createCity(formData: z.infer<typeof citySchema>) {
+export default async function createCity(formData: z.infer<typeof citySchema>) {
     const session = await validateRequest();
     if (!session.user) {
         return {
@@ -60,12 +60,3 @@ export const deleteCity = async (id: number) => {
     }
     await db.delete(City).where(eq(City.id, id));
 }
-
-// export const InsertCampus = async () => {
-//     await db.insert(Campus).values({
-//         name: "Pind",
-//         uuid: "1234567890",
-//         city: 1,
-//         password: "sanfljgsa"
-//     });
-// }
