@@ -10,4 +10,4 @@ const PrincipalReportPage = () => {
   )
 }
 
-export default PrincipalReportPage
+export default PrincipalReportPage 

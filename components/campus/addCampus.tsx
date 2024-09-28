@@ -6,7 +6,6 @@ import { Alert, AlertDescription, AlertTitle } from '../ui/alert'
 import { AlertCircle } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
-import createCity, { getCities } from '@/actions/campus/cities'
 import {
   Select,
   SelectContent,
@@ -15,11 +14,9 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useCampusStore } from '@/stores/campus'
-import { on } from 'events'
-import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { createCampus } from '@/actions/campus/campus'
-import { set } from 'zod'
+
 
 
 type city = {
@@ -96,7 +93,7 @@ const AddCampus =  ({cities}: {cities: city[]}) => {
                     Select
                   </SelectItem>
               {
-                cities.map((city, index) => (
+                cities.map((city) => (
                   <SelectItem key={city.id} value={city.id.toString()}>
                     {city.name}
                   </SelectItem>

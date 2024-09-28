@@ -2,10 +2,6 @@
 import React from 'react'
 import { motion } from "framer-motion"
 import {
-  Home,
-  User,
-  GraduationCap,
-  FileCheck2Icon,
   CornerDownRightIcon,
 } from "lucide-react"
 import { usePathname } from 'next/navigation'
@@ -18,7 +14,7 @@ const DashBoardLayhout = ({ children }: Readonly<{ children: React.ReactNode }>)
   // Variants for letter-by-letter reveal animation
   const letterVariants = {
     hidden: { opacity: 0, y: 0 },
-    visible: (i: any) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {

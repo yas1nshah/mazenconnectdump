@@ -3,7 +3,6 @@ import React from "react";
 import { TableCell, TableRow } from "../ui/table";
 import { Button } from "../ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { deleteCity } from "@/actions/campus/cities";
 import { useRouter } from "next/navigation";
 import { Badge } from "@/components/ui/badge"
 import { deleteCampus } from "@/actions/campus/campus";

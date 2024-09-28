@@ -1,9 +1,8 @@
 import { getCampuses } from '@/actions/campus/campus'
-import React, { Suspense } from 'react'
+import React from 'react'
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableFooter,
     TableHead,
@@ -14,11 +13,9 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import CityCell from './cityCell'
 import CampusCell from './campusCell'
 
 const ManageCampusCard = async () => {

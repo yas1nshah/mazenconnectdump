@@ -6,7 +6,6 @@ import ManageCitiesCard from '@/components/campus/ManageCitiesCard'
 import { Separator } from '@/components/ui/separator'
 import React, { Suspense } from 'react'
 import { Skeleton } from "@/components/ui/skeleton"
-import Image from 'next/image'
 import AnimatedHeading from '@/components/general/AnimatedHeading'
 
 const AddCampusPage = async() => {

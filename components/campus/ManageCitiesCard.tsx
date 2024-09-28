@@ -2,7 +2,6 @@ import React from 'react'
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableFooter,
     TableHead,
@@ -13,7 +12,6 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -40,7 +38,7 @@ const ManageCitiesCard = async () => {
                         </TableHeader>
                         <TableBody>
                             {cities.length > 0 ? (
-                                cities.map((city, index) => (
+                                cities.map((city) => (
                                     <CityCell key={city.id} data={city} />
                                 ))
                             ) : (
