@@ -3,7 +3,7 @@ import { useCityStore } from '@/stores/campus'
 import React, { useState } from 'react'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
-import createCity from '@/actions/campus/cities'
+import createCity from '@/app/actions/campus/cities'
 import { useRouter } from 'next/navigation'
 import { Label } from '../ui/label'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"

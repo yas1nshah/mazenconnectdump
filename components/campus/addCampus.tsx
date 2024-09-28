@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select"
 import { useCampusStore } from '@/stores/campus'
 import { useRouter } from 'next/navigation'
-import { createCampus } from '@/actions/campus/campus'
+import { createCampus } from '@/app/actions/campus/campus'
 
 
 

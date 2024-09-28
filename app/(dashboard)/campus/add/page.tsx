@@ -1,4 +1,4 @@
-import { getCities } from '@/actions/campus/cities'
+import { getCities } from '@/app/actions/campus/cities'
 import AddCampus from '@/components/campus/addCampus'
 import AddCityForm from '@/components/campus/addCity'
 import ManageCampusCard from '@/components/campus/ManageCampusCard'

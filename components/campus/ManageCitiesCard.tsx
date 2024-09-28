@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/card"
 
 import CityCell from './cityCell'
-import { getCities } from '@/actions/campus/cities'
+import { getCities } from '@/app/actions/campus/cities'
 
 const ManageCitiesCard = async () => {
     const cities = await getCities()

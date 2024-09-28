@@ -1,4 +1,4 @@
-import { getCampuses } from '@/actions/campus/campus'
+import { getCampuses } from '@/app/actions/campus/campus'
 import React from 'react'
 import {
     Table,

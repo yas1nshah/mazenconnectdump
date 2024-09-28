@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
 import { Badge } from "@/components/ui/badge"
-import { deleteCampus } from "@/actions/campus/campus";
+import { deleteCampus } from "@/app/actions/campus/campus";
 
 
 interface CityProps {
