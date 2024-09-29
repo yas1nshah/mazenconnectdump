@@ -7,19 +7,21 @@ import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { useDepartmentStore, useDesignationStore } from '@/stores/employeesRoles'
-import createDepartment from '@/app/actions/employees/departments'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { create } from 'domain'
-import { createDesignation } from '@/app/actions/employees/dessignations'
+import { useDepartmentStore } from '@/stores/employeesRoles'
+import createDepartment from '@/app/actions/employees/departments'
+import { useClassStore, useSectionStore } from '@/stores/class'
+import { createClass } from '@/app/actions/classes/class'
+import { createSection } from '@/app/actions/classes/section'
 
-type department = {
-  name: string
-  id: number
+type CampusClass = {
+    id: number;
+    name: string;
+    campus: number;
 }
 
-const AddDesignation = ({departments}: {departments: department[]}) => {
-    const desigmationStore = useDesignationStore()
+const AddSection = ({campusClasses}: {campusClasses: CampusClass[]}) => {
+    const sectionStore = useSectionStore()
     const router = useRouter()
     const [error, setError] = useState<string>("")
     
@@ -27,43 +29,43 @@ const AddDesignation = ({departments}: {departments: department[]}) => {
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       setError("")
-  
-      const response = await createDesignation({name: desigmationStore.name, department: desigmationStore.department})
-  
+
+      const response = await createSection({name: sectionStore.name, class: sectionStore.class})
       if (response.errors) {
         setError(response.errors)
         return;
     }
     
       router.refresh()
-      desigmationStore.setName("")
-      desigmationStore.setDepartment("0")
+      sectionStore.setName("")
+      sectionStore.setClass("0")
+      
     }
     return (
       <Card>
         <CardHeader>
           <CardTitle>
-            Add Designation
+            Add Section
           </CardTitle>  
           <CardDescription>
-            Please! Be Mindful as this will affect <strong>all Principal Reports</strong>.
+            Sections might get shown in Report.
           </CardDescription>
         </CardHeader>
         <CardContent>
         <form onSubmit={onSubmit} className='space-y-2 '>
   
           <div>
-            <Label className='text-right'>Designation Name</Label>
+            <Label className='text-right'>Section Name</Label>
             <Input
-            value={desigmationStore.name}
-            onChange={(e) => desigmationStore.setName(e.target.value)}
+            value={sectionStore.name}
+            onChange={(e) => sectionStore.setName(e.target.value)}
             />
           </div>
 
           <div>
-            <Label className=''>Department</Label>
-            <Select value={desigmationStore.department.toString()}
-            onValueChange={(value) => desigmationStore.setDepartment(value)}
+            <Label className=''>Class</Label>
+            <Select value={sectionStore.class.toString()}
+            onValueChange={(value) => sectionStore.setClass(value)}
             >
             <SelectTrigger className="">
               <SelectValue placeholder="City" />
@@ -73,9 +75,9 @@ const AddDesignation = ({departments}: {departments: department[]}) => {
                     Select Department
                   </SelectItem>
               {
-                departments.map((dep) => (
-                  <SelectItem key={dep.id} value={dep.id.toString()}>
-                    {dep.name}
+                campusClasses.map((item) => (
+                  <SelectItem key={item.id} value={item.id.toString()}>
+                    {item.name}
                   </SelectItem>
                 ))
               }
@@ -100,4 +102,4 @@ const AddDesignation = ({departments}: {departments: department[]}) => {
     )
   }
 
-export default AddDesignation
+export default AddSection

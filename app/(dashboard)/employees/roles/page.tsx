@@ -1,6 +1,4 @@
 import { getDepartments } from '@/app/actions/employees/departments'
-import AddDepartment from '@/components/employees/departments/AddDepartment'
-import AddDesignation from '@/components/employees/designations/AddDesignation'
 import ManageDepartments from '@/components/employees/departments/ManageDepartments'
 import AnimatedHeading from '@/components/general/AnimatedHeading'
 import React from 'react'

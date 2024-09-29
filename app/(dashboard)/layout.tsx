@@ -25,7 +25,7 @@ const DashBoardLayhout = ({ children }: Readonly<{ children: React.ReactNode }>)
   }
 
   return (
-    <div className='flex h-screen w-full gap-2'>
+    <div className='flex h-screen w-full gap-2 overflow-hidden'>
       <aside className='p-2 bg-secondary/10 h-full w-full max-w-56'>
         {menu.map((item, index) => (
           <div key={index}>

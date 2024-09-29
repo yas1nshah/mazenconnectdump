@@ -1,33 +1,40 @@
-import {create} from 'zustand'
+import { create } from "zustand"
 
-interface DepartmentState {
+interface EmployeeState {
     name: string
+    designation: number
+    salary: number
+    status: number
+    datejoined: Date
     setName: (name: string) => void
+    setDesignation: (designation: string) => void
+    setSalary: (salary: string) => void
+    setStatus: (status: string) => void
+    setDateJoined: (dateJoined: Date) => void
 }
 
-export const useDepartmentStore = create<DepartmentState>()((set)=>({
+export const useEmployeeStore = create<EmployeeState>()((set)=>({
     name: '',
-    setName: (name: string) => {
-        set({name})
-    }
-}))
-
-
-interface DesignationState {
-    name: string
-    department: number
-    setName: (name: string) => void
-    setDepartment: (department: string) => void
-}
-
-export const useDesignationStore = create<DesignationState>()((set)=>({
-    name: '',
-    department: 0,
+    designation: 0,
+    salary: 0,
+    status: 0,
+    datejoined: new Date(),
     setName: (name: string) => {
         set({name})
     },
-    setDepartment: (department: string) => {
-        const departmentNumber = parseInt(department, 10);
-        set({ department: isNaN(departmentNumber) ? 0 : departmentNumber });
+    setDesignation: (designation: string) => {
+        const designationNumber = parseInt(designation, 10);
+        set({ designation: isNaN(designationNumber) ? 0 : designationNumber });
+    },
+    setSalary: (salary: string) => {
+        const salaryNumber = parseInt(salary, 10);
+        set({ salary: isNaN(salaryNumber) ? 0 : salaryNumber });
+    },
+    setStatus: (status: string) => {
+        const statusNumber = parseInt(status, 10);
+        set({ status: isNaN(statusNumber) ? 0 : statusNumber });
+    },
+    setDateJoined: (dateJoined: Date) => {
+        set({ datejoined: dateJoined });
     }
 }))

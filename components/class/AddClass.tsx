@@ -1,17 +1,19 @@
 "use client"
 import React, { useState } from 'react'
-import { Input } from '../../ui/input'
-import { Button } from '../../ui/button'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
-import { Label } from '../../ui/label'
+import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { useDepartmentStore } from '@/stores/employeesRoles'
 import createDepartment from '@/app/actions/employees/departments'
+import { useClassStore } from '@/stores/class'
+import { createClass } from '@/app/actions/classes/class'
 
-const AddDepartment = () => {
-    const departmentStore = useDepartmentStore()
+const AddClass = () => {
+    const classStore    = useClassStore()
     const router = useRouter()
     const [error, setError] = useState<string>("")
     
@@ -19,35 +21,35 @@ const AddDepartment = () => {
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       setError("")
-  
-      const response = await createDepartment({name: departmentStore.name})
-  
+
+      const response = await createClass({name: classStore.name})
       if (response.errors) {
         setError(response.errors)
         return;
     }
     
       router.refresh()
-      departmentStore.setName("")
+      classStore.setName("")
+      
     }
     return (
       <Card>
         <CardHeader>
           <CardTitle>
-            Add Department
+            Add Class
           </CardTitle>  
           <CardDescription>
-            Please! Don't Add unessary Departments as this will affect <strong>all Principal Reports</strong>.
+            Classes will be shown on the Principal Reports.
           </CardDescription>
         </CardHeader>
         <CardContent>
         <form onSubmit={onSubmit} className='space-y-2 '>
   
           <div>
-            <Label className='text-right'>Department Name</Label>
+            <Label className='text-right'>Class Name</Label>
             <Input
-            value={departmentStore.name}
-            onChange={(e) => departmentStore.setName(e.target.value)}
+            value={classStore.name}
+            onChange={(e) => classStore.setName(e.target.value)}
             />
           </div>
           
@@ -68,4 +70,4 @@ const AddDepartment = () => {
     )
   }
 
-export default AddDepartment
+export default AddClass
