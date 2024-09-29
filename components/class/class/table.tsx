@@ -24,8 +24,8 @@ const ClassTable = async () => {
   return (
     <Card>
     <CardHeader>
-        <CardTitle>Employee Roles</CardTitle>
-        <CardDescription>Manage Departments and Designations</CardDescription>
+        <CardTitle>Campus Classes</CardTitle>
+        <CardDescription>Manage Classes and Sections</CardDescription>
     </CardHeader>
     <CardContent>
         <Table className='bg-accent p-6 rounded-md my-4 overflow-clip'>

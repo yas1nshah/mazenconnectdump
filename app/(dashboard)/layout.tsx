@@ -72,11 +72,11 @@ const DashBoardLayhout = ({ children }: Readonly<{ children: React.ReactNode }>)
                 {item.submenu.map((submenu, index) => (
                   <Link href={submenu.path} key={index}>
                     <div
-                      className={`group flex gap-2 items-center hover:bg-primary/5 py-2 px-2 rounded-sm relative ${path === submenu.path ? 'bg-primary text-primary-foreground' : ''}`}
+                      className={`group flex gap-2 items-center hover:bg-primary/5 py-2 px-2 rounded-sm relative ${path.startsWith(submenu.path) ? 'bg-primary text-primary-foreground' : ''}`}
                     >
-                      <i className={`absolute left-3 -top-2 w-[1.5px] h-5 bg-card group-hover:opacity-60 transition-opacity duration-200 ${path === submenu.path ? 'opacity-80' : 'opacity-25'}`}></i>
-                      <CornerDownRightIcon className={`h-5  group-hover:opacity-70  transition-opacity duration-200 ${path === submenu.path ? 'opacity-100' : 'opacity-25'}`} />
-                      <p className={`text-sm font-semibold group-hover:opacity-70 transition-opacity duration-200 ${(path === submenu.path) ? 'opacity-100' : 'opacity-45'}`}>{submenu.name}</p>
+                      <i className={`absolute left-3 -top-2 w-[1.5px] h-5 bg-card group-hover:opacity-60 transition-opacity duration-200 ${path.startsWith(submenu.path) ? 'opacity-80' : 'opacity-25'}`}></i>
+                      <CornerDownRightIcon className={`h-5  group-hover:opacity-70  transition-opacity duration-200 ${path.startsWith(submenu.path) ? 'opacity-100' : 'opacity-25'}`} />
+                      <p className={`text-sm font-semibold group-hover:opacity-70 transition-opacity duration-200 ${(path.startsWith(submenu.path)) ? 'opacity-100' : 'opacity-45'}`}>{submenu.name}</p>
                     </div>
                   </Link>
                 ))}

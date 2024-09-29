@@ -1,9 +1,10 @@
 "use server"
 
 import { db } from "@/drizzle/db"
-import { Campus, Class } from "@/drizzle/schema";
+import { Campus, Class, ClassSection } from "@/drizzle/schema";
 import { validateRequest } from "@/lib/validateSession";
 import { and, eq } from "drizzle-orm";
+import { Section } from "lucide-react";
 import { z } from "zod";
 
 const sectionSchema = z.object({
@@ -33,9 +34,9 @@ export const createSection = async (formData: z.infer<typeof sectionSchema>) => 
     
     try {
         const campus = await db.select().from(Campus).where(eq(Campus.id, session.user.id));
-        await db.insert(Class).values({
+        await db.insert(ClassSection).values({
             name: validationResult.data.name,
-            campus: campus[0].fkid,
+            class: validationResult.data.class,
         });
 
         return { success: true }; 
@@ -63,7 +64,7 @@ export const getSectionsByClass = async (id: number) => {
     if (!session.user) {
         return []
     }
-    const campus = await db.select().from(Campus).where(eq(Campus.id, session.user.id));
-    const classes = await db.select().from(Class).where(eq(Class.campus, campus[0].fkid));
-    return classes;
+
+    const sections = await db.select().from(ClassSection).where(and(eq(ClassSection.class, id), eq(ClassSection.class, id)));
+    return sections;
 }
