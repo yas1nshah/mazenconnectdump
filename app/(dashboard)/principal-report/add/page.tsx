@@ -1,14 +1,15 @@
+import { getClasses } from '@/app/actions/classes/class'
+import { getClassesWithSections } from '@/app/actions/principalReport/students'
 import AnimatedHeading from '@/components/general/AnimatedHeading'
 import PrincipalReportNav from '@/components/principalReport/nav'
+import StudentFormModule from '@/components/principalReport/Students/module'
 // import PRStaffModule from '@/components/principalReport/staff'
 
-import { Badge } from '@/components/ui/badge'
-import { PRStaff } from '@/drizzle/schema'
-import { Building, Projector, TimerResetIcon, User2, Brain, SquareActivity, Weight } from 'lucide-react'
-import Link from 'next/link'
 import React from 'react'
 
-const AddPrincipalReportPage = () => {
+const AddPrincipalReportPage = async () => {
+    const  classes = await getClasses()
+    const classesWithSections = await getClassesWithSections()
   return (
     <div className='py-6'>
         <div>
@@ -19,8 +20,10 @@ const AddPrincipalReportPage = () => {
         <PrincipalReportNav/>
 
 
+        <StudentFormModule campusClass={classes} data={classesWithSections}/>
         <div className="">
             {/* <PRStaffModule/> */}
+
         </div>
     </div>
 

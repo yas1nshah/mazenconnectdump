@@ -119,7 +119,7 @@ export const loginCampus = async (formData: z.infer<typeof campusLoginSchema>) =
     }
 
     console.log("creating session")
-    const session = await lucia.createSession(existingCampus[0].id, {email: formData.email});
+    const session = await lucia.createSession(existingCampus[0].id, {email: formData.email, fkid: existingCampus[0].fkid});
     const sessionCookie = lucia.createSessionCookie(session.id);
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
     return redirect("/");
